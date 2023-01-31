@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'screens/my_home_page.dart';
-import 'screens/second_page.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,7 +11,6 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (BuildContext context) => MyHomePage(),
-        "/second": (BuildContext context) => SecondPage()
       },
     );
   }
