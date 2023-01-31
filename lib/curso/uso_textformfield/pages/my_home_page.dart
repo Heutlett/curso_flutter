@@ -52,28 +52,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         return "Llene este campo";
                       }
                     }),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Número de teléfono:"),
-                  keyboardType: TextInputType.phone,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Correo electrónico:"),
-                  keyboardType: TextInputType.emailAddress,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Edad:"),
-                  keyboardType: TextInputType.number,
-                ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: "Sitio web:"),
-                  keyboardType: TextInputType.url,
-                ),
                 ElevatedButton(
                   child: const Text('Mostrar segunda pantalla'),
                   onPressed: () {
                     _showSecondPage(context);
                   },
                 ),
+                Container(
+                  height: 1000,
+                  width: 20,
+                  color: Colors.black,
+                )
               ],
             ),
           )),
