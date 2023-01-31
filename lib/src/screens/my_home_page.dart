@@ -10,47 +10,11 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       key: _scaffKey,
       appBar: AppBar(
-        title: const Text('Uso del Drawer'),
+        title: const Text('Mostrar un Snackbar'),
       ),
-      body: Center(
+      body: const Center(
         child: Text("hola"),
       ),
-      drawer: _getDrawer(context),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.menu),
-        onPressed: () => _scaffKey.currentState!.openDrawer(),
-      ),
     );
-  }
-
-  Widget _getDrawer(BuildContext context) {
-    return Drawer(
-      child: ListView(children: [
-        DrawerHeader(
-          decoration: BoxDecoration(color: Colors.orange),
-          child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FlutterLogo(
-                  size: 100,
-                ),
-                Text(
-                  "Uso de Drawer",
-                  style: TextStyle(color: Colors.white),
-                )
-              ]),
-        ),
-        ListTile(
-          title: Text("Inicio"),
-          leading: Icon(Icons.home),
-          onTap: () => showHome(context),
-        ),
-      ]),
-    );
-  }
-
-  void showHome(BuildContext context) {
-    Navigator.pop(context);
   }
 }
