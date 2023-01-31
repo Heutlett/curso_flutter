@@ -12,9 +12,34 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Mostrar un Snackbar'),
       ),
-      body: const Center(
-        child: Text("hola"),
+      body: Center(
+          child: TextButton(
+        onPressed: () => _showSnackbar(context),
+        child: Text('Show SnackBar'),
+      )),
+    );
+  }
+
+  void _showSnackbar(BuildContext context) {
+    final _snackBar = SnackBar(
+      content: Row(
+        children: [
+          Icon(Icons.thumb_up),
+          SizedBox(
+            width: 10.0,
+          ),
+          Text('Deleted action successful')
+        ],
+      ),
+      backgroundColor: Colors.deepOrange,
+      action: SnackBarAction(
+        label: "Cancelar",
+        onPressed: () {
+          print("Cancelado");
+        },
       ),
     );
+
+    ScaffoldMessenger.of(context).showSnackBar(_snackBar);
   }
 }
