@@ -18,13 +18,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final formKey = GlobalKey<FormState>();
 
-  late FocusNode nameFocus;
-  late FocusNode lastnameFocus;
-  late FocusNode telephoneFocus;
-  late FocusNode emailFocus;
-  late FocusNode ageFocus;
-  late FocusNode webSiteFocus;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,61 +31,42 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ListView(
               children: [
                 TextFormField(
-                  controller: nameController,
-                  decoration: InputDecoration(labelText: "Nombre:"),
-                  onSaved: (value) {
-                    nameValue = value!;
-                  },
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Llene este campo";
-                    }
-                  },
-                  focusNode: nameFocus,
-                  onEditingComplete: () => requestFocus(context, lastnameFocus),
-                  textInputAction: TextInputAction.next,
-                ),
+                    controller: nameController,
+                    decoration: InputDecoration(labelText: "Nombre:"),
+                    onSaved: (value) {
+                      nameValue = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Llene este campo";
+                      }
+                    }),
                 TextFormField(
-                  controller: lastNameController,
-                  decoration: InputDecoration(labelText: "Apellido:"),
-                  onSaved: (value) {
-                    lastNameValue = value!;
-                  },
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Llene este campo";
-                    }
-                  },
-                  focusNode: lastnameFocus,
-                  onEditingComplete: () =>
-                      requestFocus(context, telephoneFocus),
-                  textInputAction: TextInputAction.next,
-                ),
+                    controller: lastNameController,
+                    decoration: InputDecoration(labelText: "Apellido:"),
+                    onSaved: (value) {
+                      lastNameValue = value!;
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return "Llene este campo";
+                      }
+                    }),
                 TextFormField(
                   decoration: InputDecoration(labelText: "Número de teléfono:"),
                   keyboardType: TextInputType.phone,
-                  focusNode: telephoneFocus,
-                  onEditingComplete: () => requestFocus(context, emailFocus),
-                  textInputAction: TextInputAction.next,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: "Correo electrónico:"),
                   keyboardType: TextInputType.emailAddress,
-                  focusNode: emailFocus,
-                  onEditingComplete: () => requestFocus(context, ageFocus),
-                  textInputAction: TextInputAction.next,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: "Edad:"),
                   keyboardType: TextInputType.number,
-                  focusNode: ageFocus,
-                  onEditingComplete: () => requestFocus(context, webSiteFocus),
-                  textInputAction: TextInputAction.next,
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: "Sitio web:"),
                   keyboardType: TextInputType.url,
-                  focusNode: webSiteFocus,
                 ),
                 ElevatedButton(
                   child: const Text('Mostrar segunda pantalla'),
@@ -112,13 +86,6 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     nameController = TextEditingController(text: "Dato precargado");
     lastNameController = TextEditingController();
-
-    nameFocus = FocusNode();
-    lastnameFocus = FocusNode();
-    telephoneFocus = FocusNode();
-    emailFocus = FocusNode();
-    ageFocus = FocusNode();
-    webSiteFocus = FocusNode();
   }
 
   @override
@@ -127,17 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
     nameController.dispose();
     lastNameController.dispose();
-
-    nameFocus.dispose();
-    lastnameFocus.dispose();
-    telephoneFocus.dispose();
-    emailFocus.dispose();
-    ageFocus.dispose();
-    webSiteFocus.dispose();
-  }
-
-  void requestFocus(BuildContext context, FocusNode focusNode) {
-    FocusScope.of(context).requestFocus(focusNode);
   }
 
   void _showSecondPage(BuildContext context) {
